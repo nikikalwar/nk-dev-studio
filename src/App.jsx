@@ -216,21 +216,75 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <span className="text-2xl font-bold gradient-text">NK Dev Studio</span>
+            <Link to="/" className="text-2xl font-bold gradient-text">NK Dev Studio</Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href="#services" className="text-gray-600 hover:text-gray-900">Services</a>
-              <a href="#work" className="text-gray-600 hover:text-gray-900">Our Work</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Get Started
-              </button>
+              <Link to="/web-development" className="text-gray-600 hover:text-gray-900">Web Development</Link>
+              <Link to="/mobile-apps" className="text-gray-600 hover:text-gray-900">Mobile Apps</Link>
+              <Link to="/ui-ux-design" className="text-gray-600 hover:text-gray-900">UI/UX Design</Link>
+              <Link to="/our-work" className="text-gray-600 hover:text-gray-900">Our Work</Link>
+              <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact</Link>
+              <Link to="/get-started">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </nav>
+  );
+}
+
+function OurWork() {
+  return (
+    <div className="max-w-4xl mx-auto py-16 px-4">
+      <h2 className="text-3xl font-bold mb-6">Our Work</h2>
+      <p className="mb-4">Here are some of the projects we've delivered for our clients:</p>
+      <ul className="space-y-4">
+        <li className="bg-white p-4 rounded shadow">
+          <strong>FitNest</strong> - AI-powered fitness app for personalized coaching and progress tracking.
+        </li>
+        <li className="bg-white p-4 rounded shadow">
+          <strong>Travelio</strong> - Smart travel planner with real-time recommendations and itinerary management.
+        </li>
+        <li className="bg-white p-4 rounded shadow">
+          <strong>SnapShop</strong> - Mobile e-commerce platform with AR product previews and instant checkout.
+        </li>
+        <li className="bg-white p-4 rounded shadow">
+          <strong>FlowFrame</strong> - Collaborative wireframing tool for design teams.
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+function Contact() {
+  return (
+    <div className="max-w-2xl mx-auto py-16 px-4">
+      <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+      <p className="mb-4">We'd love to hear from you! Fill out the form below or email us at <a href="mailto:contact@nkdevstudio.com" className="text-blue-600 underline">contact@nkdevstudio.com</a>.</p>
+      <form className="space-y-4">
+        <input className="w-full p-2 border rounded" type="text" placeholder="Your Name" required />
+        <input className="w-full p-2 border rounded" type="email" placeholder="Your Email" required />
+        <textarea className="w-full p-2 border rounded" placeholder="Your Message" rows="5" required></textarea>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Send</button>
+      </form>
+    </div>
+  );
+}
+
+function GetStarted() {
+  return (
+    <div className="max-w-2xl mx-auto py-16 px-4 text-center">
+      <h2 className="text-3xl font-bold mb-6">Get Started with NK Dev Studio</h2>
+      <p className="mb-4">Ready to bring your idea to life? Tell us about your project and we'll help you make it a reality!</p>
+      <Link to="/contact">
+        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">Contact Us</button>
+      </Link>
+    </div>
   );
 }
 
@@ -265,12 +319,16 @@ function App() {
                       We craft exceptional digital experiences that help businesses grow and succeed in the digital world.
                     </p>
                     <div className="flex justify-center gap-4">
-                      <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                        Start Your Project
-                      </button>
-                      <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
-                        View Our Work
-                      </button>
+                      <Link to="/get-started">
+                        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                          Start Your Project
+                        </button>
+                      </Link>
+                      <Link to="/our-work">
+                        <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+                          View Our Work
+                        </button>
+                      </Link>
                     </div>
                   </motion.div>
                 </div>
@@ -389,9 +447,12 @@ function App() {
                     <div>
                       <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                       <ul className="space-y-2">
-                        <li><a href="#services" className="text-gray-400 hover:text-white">Services</a></li>
-                        <li><a href="#work" className="text-gray-400 hover:text-white">Our Work</a></li>
-                        <li><a href="#contact" className="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><Link to="/web-development" className="text-gray-400 hover:text-white">Web Development</Link></li>
+                        <li><Link to="/mobile-apps" className="text-gray-400 hover:text-white">Mobile Apps</Link></li>
+                        <li><Link to="/ui-ux-design" className="text-gray-400 hover:text-white">UI/UX Design</Link></li>
+                        <li><Link to="/our-work" className="text-gray-400 hover:text-white">Our Work</Link></li>
+                        <li><Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
+                        <li><Link to="/get-started" className="text-gray-400 hover:text-white">Get Started</Link></li>
                       </ul>
                     </div>
                     <div>
@@ -413,6 +474,9 @@ function App() {
           <Route path="/web-development" element={<WebDevelopment />} />
           <Route path="/mobile-apps" element={<MobileApps />} />
           <Route path="/ui-ux-design" element={<UIDesign />} />
+          <Route path="/our-work" element={<OurWork />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/get-started" element={<GetStarted />} />
         </Routes>
       </div>
     </>
